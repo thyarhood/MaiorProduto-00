@@ -36,6 +36,7 @@ public class MaiorProduto {
 			int resultado_anterior[];
 			resultado_anterior = new int[long_String];
 			resultado[0] = 1;
+			int alerta_zero = 0;
 		
 					int j = 0;
 		
@@ -45,11 +46,19 @@ public class MaiorProduto {
 						j = 0;	
 						}
 						resultado_anterior[i] = resultado[j];
-						resultado[i] = numeros_vetor[i] * resultado_anterior[i];
-						if(i > 4){
-						resultado[i] = resultado[i]/numeros_vetor[i - 5];
+						if(alerta_zero == 1) {
+						alerta_zero = 0;
+						resultado_anterior[i] = 1;
 						}
-						System.out.println(resultado[i]);
+						resultado[i] = numeros_vetor[i] * resultado_anterior[i];
+						if(i > 4 && numeros_vetor[i - 5] != 0 ){
+						resultado[i] = resultado[i]/numeros_vetor[i - 5];	
+						}
+						if(i > 4 && numeros_vetor[i - 5] == 0){
+						alerta_zero = 1;
+						System.out.println("alerta_zero ligou"  + i);
+						}
+						System.out.println(resultado[i] + " " + i);
 						}
 			//Status == funcionando//
 						
