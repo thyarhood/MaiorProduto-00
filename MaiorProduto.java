@@ -33,6 +33,8 @@ public class MaiorProduto {
 			//Faz a multiplicaçao entre os termos
 			int resultado[];
 			resultado = new int[long_String];
+			int resultado_anterior[];
+			resultado_anterior = new int[long_String];
 			resultado[0] = 1;
 		
 					int j = 0;
@@ -42,11 +44,17 @@ public class MaiorProduto {
 						if(i <= 1){
 						j = 0;	
 						}
-						resultado[i] = numeros_vetor[i] * resultado[j];
+						resultado_anterior[i] = resultado[j];
+						resultado[i] = numeros_vetor[i] * resultado_anterior[i];
+						if(i > 4){
+						resultado[i] = resultado[i]/numeros_vetor[i - 5];
+						}
 						System.out.println(resultado[i]);
 						}
-			//Status == funcionando
-		
-		
+			//Status == funcionando//
+						
+			
+						
+sc.close();		
 	}
 }
